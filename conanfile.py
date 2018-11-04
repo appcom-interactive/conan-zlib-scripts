@@ -9,7 +9,7 @@ class ZlibConan(ConanFile):
     options = {"shared": [True, False],
                 "android_ndk": "ANY"}
     default_options = "shared=False", "android_ndk=None"
-    description = "zlib is a lossless data-compression library."
+    description = "Compressing File-I/O Library"
     url = "https://github.com/Manromen/conan-zlib-scripts"
     license = "Zlib"
 
