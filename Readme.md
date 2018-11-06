@@ -28,7 +28,9 @@ Coming soon
 
 ## iOS
 
-Coming soon
+To create a package for iOS you can run the conan command like this:
+
+`conan create . zlib/1.2.11@rgpaul/stable -s os=iOS -s os.version=12.1 -s arch=armv7 -s build_type=Release -o shared=False`
 
 ### Requirements
 
