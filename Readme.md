@@ -23,7 +23,9 @@ conan create . zlib/1.2.11@rgpaul/stable -s os=Android -s os.api_level=21 -s com
 
 ## Debian 9 (Stretch)
 
-Coming soon
+To create a package for Debian you can run the conan command like this:
+
+`conan create . zlib/${LIBRARY_VERSION}@rgpaul/stable -s os=Linux -s arch=x86_64 -s build_type=Release -o shared=False`
 
 ### Requirements
 
