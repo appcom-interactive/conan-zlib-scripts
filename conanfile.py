@@ -48,7 +48,7 @@ class ZlibConan(ConanFile):
 
         lib_dir = os.path.join(self.package_folder,"lib")
 
-        if self.settings.os == "Android" or self.settings.os == "Linux":
+        if self.settings.os == "Android":
             # delete shared artifacts for static builds and the static library for shared builds
             if self.options.shared == False:
                 os.remove('%s/lib/libz.so' % self.package_folder)
@@ -71,6 +71,15 @@ class ZlibConan(ConanFile):
                 for f in os.listdir(lib_dir):
                     if f.endswith(".dylib") and os.path.isfile(os.path.join(lib_dir,f)) and not os.path.islink(os.path.join(lib_dir,f)):
                         self.run("lipo -extract %s %s -output %s" % (tools.to_apple_arch(self.settings.arch), os.path.join(lib_dir,f), os.path.join(lib_dir,f)))
+
+        if self.settings.os == "Linux":
+            # delete shared artifacts for static builds and the static library for shared builds
+            if self.options.shared == False:
+                for f in os.listdir(lib_dir):
+                    if f.startswith("libz.so"):       
+                        os.remove(os.path.join(lib_dir,f))
+            else:
+                os.remove('%s/lib/libz.a' % self.package_folder)
 
         if self.settings.os == "Macos":
             # delete shared artifacts for static builds and the static library for shared builds
