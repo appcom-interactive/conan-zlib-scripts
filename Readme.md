@@ -8,7 +8,12 @@ This repository is licensed under the [MIT License](LICENSE).
 
 ## Android
 
-Coming soon
+The environmental `ANDROID_NDK_PATH` must be set to the path of the android ndk.
+
+To create a package for Android you can run the following commands like:
+
+`export ANDROID_NDK_PATH='/opt/android-ndks/android-ndk-r18b'
+conan create . zlib/1.2.11@rgpaul/stable -s os=Android -s os.api_level=21 -s compiler=clang -s compiler.version=7.0 -s compiler.libcxx=libc++ -s build_type=Release -o android_ndk=r18b -o android_stl_type=c++_static -s arch=x86_64`
 
 ### Requirements
 
