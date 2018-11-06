@@ -23,6 +23,16 @@ class ZlibConan(ConanFile):
         cmake = CMake(self)
         zlib_folder = "%s/zlib-%s" % (self.source_folder, self.version)
         cmake.verbose = True
+
+        if self.settings.os == "Macos":
+            if self.settings.arch == "x86":
+                osx_arch = "i386" # warning: i386 is deprecated for macos
+            elif self.settings.arch == "x86_64":
+                osx_arch = "x86_64"
+            else:
+                osx_arch = self.arch
+            cmake.definitions["CMAKE_OSX_ARCHITECTURES"] = osx_arch
+
         cmake.configure(source_folder=zlib_folder)
         cmake.build()
         cmake.install()
@@ -40,7 +50,15 @@ class ZlibConan(ConanFile):
                 os.remove('%s/lib/%s.lib' % (self.package_folder, libname))
                 os.rename('%s/lib/%s.lib' % (self.package_folder, static_libname), '%s/lib/%s.lib' % (self.package_folder, libname))
             else:
-                os.remove('%s/lib/%s.lib' % (self.package_folder, static_libname))        
+                os.remove('%s/lib/%s.lib' % (self.package_folder, static_libname))
+
+        if self.settings.os == "Macos":
+            # delete shared artifacts for static builds and the static library for shared builds
+            if self.options.shared == False:
+                dir = os.path.join(self.package_folder,"lib")
+                [os.remove(os.path.join(dir,f)) for f in os.listdir(dir) if f.endswith(".dylib")]
+            else:
+                os.remove('%s/lib/libz.a' % self.package_folder)
 
     def package(self):
         self.copy("*", dst="include", src='include')

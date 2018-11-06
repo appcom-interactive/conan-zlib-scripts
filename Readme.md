@@ -38,7 +38,9 @@ Coming soon
 
 ## macOS
 
-Coming soon
+To create a package for macOS you can run the conan command like this:
+
+`conan create . zlib/1.2.11@rgpaul/stable -s os=Macos -s arch=x86_64 -s build_type=Release -o shared=False`
 
 ### Requirements
 
@@ -49,6 +51,7 @@ Coming soon
 ## Windows 10
 
 To create a package for Windows 10 you can run the conan command like this:
+
 `conan create . zlib/1.2.11@rgpaul/stable -s os=Windows -s compiler="Visual Studio" -s compiler.runtime=MT -s arch=x86 -s build_type=Release -o shared=False`
 
 ### Requirements
