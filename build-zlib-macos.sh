@@ -24,6 +24,7 @@ set -e
 # settings
 
 declare LIBRARY_VERSION=1.2.11
+declare MACOS_SDK_VERSION=$(xcodebuild -showsdks | grep macosx | awk '{print $4}' | sed 's/[^0-9,\.]*//g')
 
 #=======================================================================================================================
 # create conan package
@@ -33,8 +34,8 @@ function createConanPackage()
     local arch=$1
     local build_type=$2
 
-    conan create . zlib/${LIBRARY_VERSION}@rgpaul/stable -s os=Macos -s arch=${arch} -s build_type=${build_type} \
-        -o shared=False
+    conan create . zlib/${LIBRARY_VERSION}@rgpaul/stable -s os=Macos -s os.version=${MACOS_SDK_VERSION} \
+    	-s arch=${arch} -s build_type=${build_type} -o shared=False
 }
 
 #=======================================================================================================================
