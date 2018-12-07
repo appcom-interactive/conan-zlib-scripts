@@ -22,6 +22,8 @@
 # settings
 
 $LIBRARY_VERSION = "1.2.11"
+$CONAN_USER = "rgpaul"
+$CONAN_CHANNEL = "stable"
 
 #=======================================================================================================================
 # create conan package
@@ -36,8 +38,14 @@ function CreateConanPackage($arch, $build_type)
         $runtime = "MTd"
     }
 
-    & conan create . zlib/${LIBRARY_VERSION}@rgpaul/stable -s os=Windows -s compiler="Visual Studio" `
-        -s compiler.runtime=${runtime} -s arch=${arch} -s build_type=${build_type} -o shared=False
+    # Visual Studio Compiler Versions:
+    # Visual Studio 12 2013
+    # Visual Studio 14 2015
+    # Visual Studio 15 2017
+
+    & conan create . zlib/${LIBRARY_VERSION}@${CONAN_USER}/${CONAN_CHANNEL} -s os=Windows -s compiler="Visual Studio" `
+        -s compiler.version=15 -s compiler.runtime=${runtime} -s arch=${arch} -s build_type=${build_type} `
+        -o shared=False
 
     Pop-Location
 }

@@ -11,13 +11,12 @@ class ZlibConan(ConanFile):
     description = "Compressing File-I/O Library"
     url = "https://github.com/Manromen/conan-zlib-scripts"
     license = "Zlib"
+    exports_sources = "cmake-modules/*"
 
     # download zlib sources
     def source(self):
         url = "https://zlib.net/zlib%s.zip" % self.version.replace(".","")
         tools.get(url)
-        git = tools.Git(folder="cmake-modules")
-        git.clone("https://github.com/Manromen/cmake-modules.git")
 
     # compile using cmake
     def build(self):

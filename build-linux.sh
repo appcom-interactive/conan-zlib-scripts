@@ -24,6 +24,8 @@ set -e
 # settings
 
 declare LIBRARY_VERSION=1.2.11
+declare CONAN_USER=rgpaul
+declare CONAN_CHANNEL=stable
 
 #=======================================================================================================================
 # create conan package
@@ -33,8 +35,8 @@ function createConanPackage()
     local arch=$1
     local build_type=$2
 
-    conan create . zlib/${LIBRARY_VERSION}@rgpaul/stable -s os=Linux -s arch=${arch} -s build_type=${build_type} \
-        -o shared=False
+    conan create . zlib/${LIBRARY_VERSION}@${CONAN_USER}/${CONAN_CHANNEL} -s os=Linux -s arch=${arch} \
+        -s build_type=${build_type} -o shared=False
 }
 
 #=======================================================================================================================
