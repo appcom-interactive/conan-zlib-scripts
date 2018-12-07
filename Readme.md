@@ -49,7 +49,7 @@ To create a package for iOS you can run the conan command like this:
 
 To create a package for macOS you can run the conan command like this:
 
-`conan create . zlib/1.2.11@rgpaul/stable -s os=Macos -s arch=x86_64 -s build_type=Release -o shared=False`
+`conan create . zlib/1.2.11@rgpaul/stable -s os=Macos -s os.version=10.14 -s arch=x86_64 -s build_type=Release -o shared=False`
 
 ### Requirements
 
