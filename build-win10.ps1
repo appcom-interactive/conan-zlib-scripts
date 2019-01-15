@@ -2,7 +2,7 @@
 # ----------------------------------------------------------------------------------------------------------------------
 # The MIT License (MIT)
 #
-# Copyright (c) 2018 Ralph-Gordon Paul. All rights reserved.
+# Copyright (c) 2018-2019 Ralph-Gordon Paul. All rights reserved.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated 
 # documentation files (the "Software"), to deal in the Software without restriction, including without limitation the 
@@ -22,7 +22,7 @@
 # settings
 
 $LIBRARY_VERSION = "1.2.11"
-$CONAN_USER = "rgpaul"
+$CONAN_USER = "appcom"
 $CONAN_CHANNEL = "stable"
 
 #=======================================================================================================================

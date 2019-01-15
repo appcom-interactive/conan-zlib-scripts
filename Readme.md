@@ -1,6 +1,6 @@
 # Conan zlib script
 
-This repository contains the conan receipe that is used to build the zlib packages at [rgpaul bintray](https://bintray.com/manromen/rgpaul).
+This repository contains the conan receipe that is used to build the zlib packages for appcom.
 
 For Infos about the zlib library please visit [zlib.net](https://zlib.net).
 The library is licensed under the [zlib License](https://zlib.net/zlib_license.html).
@@ -13,7 +13,7 @@ The environmental `ANDROID_NDK_PATH` must be set to the path of the android ndk.
 To create a package for Android you can run the following commands like:
 
 `export ANDROID_NDK_PATH='/opt/android-ndks/android-ndk-r18b'
-conan create . zlib/1.2.11@rgpaul/stable -s os=Android -s os.api_level=21 -s compiler=clang -s compiler.version=7.0 -s compiler.libcxx=libc++ -s build_type=Release -o android_ndk=r18b -o android_stl_type=c++_static -s arch=x86_64`
+conan create . zlib/1.2.11@appcom/stable -s os=Android -s os.api_level=21 -s compiler=clang -s compiler.version=7.0 -s compiler.libcxx=libc++ -s build_type=Release -o android_ndk=r18b -o android_stl_type=c++_static -s arch=x86_64`
 
 ### Requirements
 
@@ -25,7 +25,7 @@ conan create . zlib/1.2.11@rgpaul/stable -s os=Android -s os.api_level=21 -s com
 
 To create a package for Debian you can run the conan command like this:
 
-`conan create . zlib/${LIBRARY_VERSION}@rgpaul/stable -s os=Linux -s arch=x86_64 -s build_type=Release -o shared=False`
+`conan create . zlib/${LIBRARY_VERSION}@appcom/stable -s os=Linux -s arch=x86_64 -s build_type=Release -o shared=False`
 
 ### Requirements
 
@@ -37,7 +37,7 @@ To create a package for Debian you can run the conan command like this:
 
 To create a package for iOS you can run the conan command like this:
 
-`conan create . zlib/1.2.11@rgpaul/stable -s os=iOS -s os.version=12.1 -s arch=armv7 -s build_type=Release -o shared=False`
+`conan create . zlib/1.2.11@appcom/stable -s os=iOS -s os.version=12.1 -s arch=armv7 -s build_type=Release -o shared=False`
 
 ### Requirements
 
@@ -49,7 +49,7 @@ To create a package for iOS you can run the conan command like this:
 
 To create a package for macOS you can run the conan command like this:
 
-`conan create . zlib/1.2.11@rgpaul/stable -s os=Macos -s os.version=10.14 -s arch=x86_64 -s build_type=Release -o shared=False`
+`conan create . zlib/1.2.11@appcom/stable -s os=Macos -s os.version=10.14 -s arch=x86_64 -s build_type=Release -o shared=False`
 
 ### Requirements
 
@@ -61,7 +61,7 @@ To create a package for macOS you can run the conan command like this:
 
 To create a package for Windows 10 you can run the conan command like this:
 
-`conan create . zlib/1.2.11@rgpaul/stable -s os=Windows -s compiler="Visual Studio" -s compiler.runtime=MT -s arch=x86 -s build_type=Release -o shared=False`
+`conan create . zlib/1.2.11@appcom/stable -s os=Windows -s compiler="Visual Studio" -s compiler.runtime=MT -s arch=x86 -s build_type=Release -o shared=False`
 
 ### Requirements
 

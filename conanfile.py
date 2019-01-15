@@ -4,12 +4,12 @@ import os
 class ZlibConan(ConanFile):
     name = "zlib"
     version = "1.2.11"
-    author = "Ralph-Gordon Paul (gordon@rgpaul.com)"
+    author = "Ralph-Gordon Paul (g.paul@appcom-interactive.de)"
     settings = "os", "compiler", "build_type", "arch"
     options = {"shared": [True, False], "android_ndk": "ANY", "android_stl_type":["c++_static", "c++_shared"]}
     default_options = "shared=False", "android_ndk=None", "android_stl_type=c++_static"
     description = "Compressing File-I/O Library"
-    url = "https://github.com/Manromen/conan-zlib-scripts"
+    url = "https://github.com/appcom-interactive/conan-zlib-scripts"
     license = "Zlib"
     exports_sources = "cmake-modules/*"
 
